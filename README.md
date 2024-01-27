@@ -1,6 +1,2 @@
 # Data Warehouse and Business Intelligence 
-
-## Heading 2
-
-## Heading 3
-
+First time to work with codespace
