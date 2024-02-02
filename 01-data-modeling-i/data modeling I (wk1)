@@ -1,0 +1,9 @@
+# Data modeling (wk1)
+จากข้อมูลใน json file พบว่าข้อมูลมีความสัมพันธ์กันดังนี้
+1. table actor มีความสัมพันธ์กับ table event แบบ one to many
+2. table repo มีความสัมพันธ์กับ table event แบบ one to many 
+จาก code ในไฟล์ create_tables.py ที่ยังไม่มีในส่วน repo จึงดำเนินการดังต่อไปนี้
+# Add new table repo
+   1. ทำการสร้าง repo table ใน file create_tables.py  โดยในตาราง repo จะมี attribute ชื่อ id (pk) และ name 
+   2. ทำการเพิ่ม repo_id ใน event table โดยให้ repo_id เป็น fk
+ทำการแก้ไขในไฟล์ etl.py เพื่อเพิ่มข้อมูล repo ลงใน repo table
