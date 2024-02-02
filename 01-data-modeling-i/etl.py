@@ -76,23 +76,12 @@ def process(cur, conn, filepath):
                 # print(insert_statement)
                 cur.execute(insert_statement)
 
-                 # Insert data into tables here
-                insert_statement = f"""
-                    INSERT INTO repo (
-                        id,
-                        name
-                    ) VALUES ({each["repo"]["id"]}, '{each["repo"]["name"]}')
-                    ON CONFLICT (id) DO NOTHING
-                """
-                # print(insert_statement)
-                cur.execute(insert_statement)
-
                 # Insert data into tables here
                 insert_statement = f"""
                     INSERT INTO events (
                         id,
                         type,
-                        actor_id
+                        actor_id,
                         repo_id
                     ) VALUES ('{each["id"]}', '{each["type"]}', '{each["actor"]["id"]}', '{each["repo"]["id"]}')
                     ON CONFLICT (id) DO NOTHING
