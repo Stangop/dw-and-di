@@ -8,11 +8,11 @@
 
 3.ทำการแก้ไข code etl.py file
  โดยดำเนินการ ดังนี้
- 
+
     - ทำการ Drop Table ก่อนเพื่อป้องกันความผิดพลาดหากมีตารางอยู่แล้ว 
     - ทำการ create table โดยใช้คำสั่งดังนี้
 
-```table_create_actors = """
+    ```table_create_actors = """
     CREATE TABLE IF NOT EXISTS actors
     (
         id text,
@@ -22,9 +22,9 @@
             id
         )
     )
-"""
+    """
 
-table_create_repo = """
+    table_create_repo = """
     CREATE TABLE IF NOT EXISTS repo
     (
         id text,
@@ -34,8 +34,8 @@ table_create_repo = """
             id
         )
     )
-"""
-table_create_events = """
+    """
+    table_create_events = """
     CREATE TABLE IF NOT EXISTS events
     (
         id text,
@@ -51,15 +51,16 @@ table_create_events = """
             type
         )
     )
-"""
-```
+    """
+    ```
+
     จากคำสั่งข้างต้นจะเห็นได้ว่า
       public จะเก็บข้อมูลเป็น boolean เนื่องจากการเก็บข้อมูล public จะแสดงให้เห็นว่า events นี้เปิดให้ดูเป็น public หรือไ่ม่ 
       โดยจะสามารถ query เรียกดูแค่ข้อมูลได้ว่าหากเป็น true = public
  * ในการออกแบบนี้จะให้ id , type เป็น primary key และ created_at เป็น clustering key เพื่อเรียงลำดับข้อมูลภายใน partition ของคอลัมน์ id
 
     - จัดการข้อมูลที่ได้จากไฟล์ .json เข้าสู่ Table ใน Database
-    ```query = f"""
+        ```query = f"""
                    INSERT INTO events (
                         id,
                         type,
@@ -75,17 +76,17 @@ table_create_events = """
                             '{each["created_at"]}',{each["public"]})
                 """
                 session.execute(query)
-```
+    ```
+
 
 4. ทำการตรวจสอบข้อมูลใน Database ด้วยคำสั่ง cqlsh เพื่อเชื่อมต่อกับ Cassandra database เพื่อ Test Cluster
 5. ทำการ Query และจัดการกับข้อมูลผ่าน CQL
 cqlsh> select * from github_events.events ;
 ตารางแสดงผลดังภาพ
-![Alt text](image/screenshot-event table.png)
+![Alt text]([image/screenshot-event table.png](readme.md))
 
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
-
 
  ## Instruction Data Modeling 2 ##
 1. open file in folder 02-data-modeling-2  --> cd 02-data-modeling-2
