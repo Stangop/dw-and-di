@@ -5,11 +5,34 @@ from typing import List
 
 from cassandra.cluster import Cluster
 
-table_drop_events = "DROP TABLE IF EXISTS events"
-table_drop_repo = "DROP TABLE IF EXISTS repo"
 table_drop_actors = "DROP TABLE IF EXISTS actors"
+table_drop_repo = "DROP TABLE IF EXISTS repo"
+table_drop_events = "DROP TABLE IF EXISTS events"
 
-table_create = """
+table_create_actors = """
+    CREATE TABLE IF NOT EXISTS actors
+    (
+        id text,
+        login text,
+        public boolean,
+        PRIMARY KEY (
+            id
+        )
+    )
+"""
+
+table_create_repo = """
+    CREATE TABLE IF NOT EXISTS repo
+    (
+        id text,
+        type text,
+        public boolean,
+        PRIMARY KEY (
+            id
+        )
+    )
+"""
+table_create_events = """
     CREATE TABLE IF NOT EXISTS events
     (
         id text,
@@ -26,50 +49,38 @@ table_create = """
         )
     )
 """
-table_create = """
-    CREATE TABLE IF NOT EXISTS actors
-    (
-        id text,
-        login text,
-        public boolean,
-        PRIMARY KEY (
-            id
-        )
-    )
-"""
-
-table_create = """
-    CREATE TABLE IF NOT EXISTS repo
-    (
-        id text,
-        type text,
-        public boolean,
-        PRIMARY KEY (
-            id,
-        )
-    )
-"""
 
 create_table_queries = [
-    table_create,
+    table_create_actors,
+    table_create_repo,
+    table_create_events
 ]
 drop_table_queries = [
-    table_drop,
+    table_drop_actors,
+    table_drop_repo,
+    table_drop_events
 ]
 
-create_table_queries = [
-    table_create,
-]
-drop_table_queries = [
-    table_drop,
-]
+#create_table_queries = [
+    #table_create,
+#]
+#drop_table_queries = [
+ #   table_drop_events,
+#]
 
-create_table_queries = [
-    table_create,
-]
-drop_table_queries = [
-    table_drop,
-]
+#create_table_queries = [
+ #   table_create,
+#]
+#drop_table_queries = [
+ #   table_drop_repo,
+#]
+
+#create_table_queries = [
+  #  table_create,
+#]
+#drop_table_queries = [
+  #  table_drop_actors,
+#]
 
 def drop_tables(session):
     for query in drop_table_queries:
