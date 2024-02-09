@@ -86,7 +86,7 @@
 
 ตารางแสดงผลดังภาพ
 
-![Alt text](screenshot-event table.png)
+[![Alt text](screenshot-event table.png)](https://github.com/Stangop/dw-and-di/blob/main/02-data-modeling-ii/screenshot-event%20table.png)
 
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
