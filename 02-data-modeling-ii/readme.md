@@ -1,10 +1,14 @@
 # Building a Data Modeling with Cassandra (NoSQL)#
-Documentation
+#Documentation
 1.ทำการศึกษาความสัมพันธ์ของข้อมูล ใน json file 
+
 2.สร้าง Data Model ด้วย Cassandra ซึ่งเป็น NoSQL Database ด้วยคำสั่ง
+
  pip install cqlsh
+
 3.ทำการแก้ไข code etl.py file
  โดยดำเนินการ ดังนี้
+ 
     - ทำการ Drop Table ก่อนเพื่อป้องกันความผิดพลาดหากมีตารางอยู่แล้ว 
     - ทำการ create table โดยใช้คำสั่งดังนี้
 
