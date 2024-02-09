@@ -8,7 +8,7 @@ Documentation
     - ทำการ Drop Table ก่อนเพื่อป้องกันความผิดพลาดหากมีตารางอยู่แล้ว 
     - ทำการ create table โดยใช้คำสั่งดังนี้
 
-table_create_actors = """
+```table_create_actors = """
     CREATE TABLE IF NOT EXISTS actors
     (
         id text,
@@ -48,6 +48,7 @@ table_create_events = """
         )
     )
 """
+```
     จากคำสั่งข้างต้นจะเห็นได้ว่า
       public จะเก็บข้อมูลเป็น boolean เนื่องจากการเก็บข้อมูล public จะแสดงให้เห็นว่า events นี้เปิดให้ดูเป็น public หรือไ่ม่ 
       โดยจะสามารถ query เรียกดูแค่ข้อมูลได้ว่าหากเป็น true = public
