@@ -124,11 +124,11 @@ def process(session, filepath):
             data = json.loads(f.read())
             for each in data:
                 # Print some sample data
-                #print(each["id"], each["type"], each["actor"]["login"])
+                print(each["id"], each["type"], each["actor"]["login"])
 
-                # Insert data into tables here
+                #Insert data into tables here
                 query = f"""
-                    INSERT INTO events (
+                   INSERT INTO events (
                         id,
                         type,
                         actor_id,
@@ -176,11 +176,16 @@ def main():
     create_tables(session)
 
     # process(session, filepath="../data")
-    insert_sample_data(session)
-
+    # insert_sample_data(session)
     # Select data in Cassandra and print them to stdout
+    # query = """
+    # SELECT * from events WHERE id = '23487929637' AND type = 'IssueCommentEvent'
+    # """
+
+    process(session, filepath="../data")
+
     query = """
-    SELECT * from events WHERE id = '23487929637' AND type = 'IssueCommentEvent'
+    SELECT * from events
     """
     try:
         rows = session.execute(query)
