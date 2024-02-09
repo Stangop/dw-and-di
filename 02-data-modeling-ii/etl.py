@@ -113,10 +113,25 @@ def process(session, filepath):
             data = json.loads(f.read())
             for each in data:
                 # Print some sample data
-               # print(each["id"], each["type"], each["actor"]["login"])
+                #print(each["id"], each["type"], each["actor"]["login"])
 
                 # Insert data into tables here
-
+                query = f"""
+                    INSERT INTO events (
+                        id,
+                        type,
+                        actor_id,
+                        actor_login,
+                        repo_id,
+                        repo_name,
+                        created_at,
+                        public) 
+                    VALUES ('{each["id"]}', '{each["type"]}', 
+                            '{each["actor"]["id"]}','{each["actor"]["login"]}',
+                            '{each["repo"]["id"]}', '{each["repo"]["name"]}', 
+                            '{each["created_at"]}',{each["public"]})
+                """
+                session.execute(query)
 
 def insert_sample_data(session):
     query = f"""
