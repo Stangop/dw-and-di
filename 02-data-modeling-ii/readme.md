@@ -55,7 +55,7 @@ table_create_events = """
  * ในการออกแบบนี้จะให้ id , type เป็น primary key และ created_at เป็น clustering key เพื่อเรียงลำดับข้อมูลภายใน partition ของคอลัมน์ id
 
     - จัดการข้อมูลที่ได้จากไฟล์ .json เข้าสู่ Table ใน Database
-    query = f"""
+    ```query = f"""
                    INSERT INTO events (
                         id,
                         type,
@@ -71,13 +71,13 @@ table_create_events = """
                             '{each["created_at"]}',{each["public"]})
                 """
                 session.execute(query)
-
+```
 
 4. ทำการตรวจสอบข้อมูลใน Database ด้วยคำสั่ง cqlsh เพื่อเชื่อมต่อกับ Cassandra database เพื่อ Test Cluster
 5. ทำการ Query และจัดการกับข้อมูลผ่าน CQL
 cqlsh> select * from github_events.events ;
 ตารางแสดงผลดังภาพ
-![Alt text](image/screenshot-event table.png)
+![Alt text](/workspaces/dw-and-di/02-data-modeling-ii/screenshot-event table.png)
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
 
