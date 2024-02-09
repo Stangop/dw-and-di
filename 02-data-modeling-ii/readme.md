@@ -83,7 +83,7 @@
 5. ทำการ Query และจัดการกับข้อมูลผ่าน CQL
 cqlsh> select * from github_events.events ;
 ตารางแสดงผลดังภาพ
-/workspaces/dw-and-di/02-data-modeling-ii/image/screenshot-event table.png
+![Alt text](screenshot-event table.png)
 
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
