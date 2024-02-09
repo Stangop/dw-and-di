@@ -77,7 +77,8 @@ table_create_events = """
 5. ทำการ Query และจัดการกับข้อมูลผ่าน CQL
 cqlsh> select * from github_events.events ;
 ตารางแสดงผลดังภาพ
-![Alt text](/workspaces/dw-and-di/02-data-modeling-ii/screenshot-event table.png)
+![Alt text](image/screenshot-event table.png)
+
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
 
