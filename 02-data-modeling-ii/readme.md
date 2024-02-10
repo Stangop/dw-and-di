@@ -85,7 +85,7 @@
 
 ตารางแสดงผลดังภาพ
 
-[Alt text](<screenshot-event table.png>)
+[Alt text](screenshot-event table.png)
 
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
