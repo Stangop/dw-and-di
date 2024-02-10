@@ -1,5 +1,6 @@
 # Building a Data Modeling with Cassandra (NoSQL)#
 #Documentation
+
 1.ทำการศึกษาความสัมพันธ์ของข้อมูล ใน json file 
 
 2.สร้าง Data Model ด้วย Cassandra ซึ่งเป็น NoSQL Database ด้วยคำสั่ง
@@ -85,7 +86,8 @@
 
 ตารางแสดงผลดังภาพ
 
-[Alt text](screenshot-event table.png)
+![Alt text](<screenshot-event table.png>)
+
 
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
