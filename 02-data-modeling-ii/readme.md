@@ -76,8 +76,7 @@
                             '{each["created_at"]}',{each["public"]})
                 """
                 session.execute(query)
-    ```
-
+   
 
 4. ทำการตรวจสอบข้อมูลใน Database ด้วยคำสั่ง cqlsh เพื่อเชื่อมต่อกับ Cassandra database เพื่อ Test Cluster
 5. ทำการ Query และจัดการกับข้อมูลผ่าน CQL
