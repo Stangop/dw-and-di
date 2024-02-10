@@ -80,9 +80,16 @@
 
 4. ทำการตรวจสอบข้อมูลใน Database ด้วยคำสั่ง cqlsh เพื่อเชื่อมต่อกับ Cassandra database เพื่อ Test Cluster
 5. ทำการ Query และจัดการกับข้อมูลผ่าน CQL
-cqlsh> select * from github_events.events ;
+   ```
+   cqlsh> select * from github_events.events ;
+
 ตารางแสดงผลดังภาพ
+<<<<<<< HEAD
 ![Alt text](screenshot-event table.png)
+=======
+
+[![Alt text](screenshot-event table.png)](https://github.com/Stangop/dw-and-di/blob/main/02-data-modeling-ii/screenshot-event%20table.png)
+>>>>>>> 46fc3a0b1d3c86d2ddc97d1f1fa87cffc24bbaf7
 
 6.ทำการออกจากคำสั่งก่อนหน้า
  cqlsh> exit 
