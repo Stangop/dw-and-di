@@ -30,18 +30,25 @@ create_table_queries = [
 ]
 copy_table_queries = [
     """
-    COPY staging_events FROM 's3://zkan-swu-labs/github_events_01.json'
-    CREDENTIALS 'aws_iam_role=arn:aws:iam::381492276245:role/LabRole'
-    JSON 's3://zkan-swu-labs/events_json_path.json'
+    COPY staging_events FROM 's3://stangds525/github_events_01.json'
+    CREDENTIALS 'aws_iam_role=arn:aws:iam::891377209493:role/LabRole'
+    JSON 's3://stangds525/github_events_01.json'
     REGION 'us-east-1'
     """,
 ]
 insert_table_queries = [
     """
-    INSERT INTO
-      events (
-        id
-      )
+    INSERT INTO 
+        events (
+            id, 
+            type, 
+            actor_id, 
+            actor_login, 
+            repo_id, 
+            repo_name, 
+            created_at
+        )
+
     SELECT
       DISTINCT id,
     FROM
