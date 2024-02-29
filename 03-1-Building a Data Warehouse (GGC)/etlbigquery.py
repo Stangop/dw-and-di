@@ -87,4 +87,4 @@ if __name__ == "__main__":
                 for each in data:
                      writer.writerow([each["id"], each["type"], each["actor"]["login"]])
 
-    main(dataset_id, table_id, file_path)
+    main(dataset_id="github_ds525", table_id="events", file_path="github_events.csv")
