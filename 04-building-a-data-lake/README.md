@@ -72,7 +72,7 @@ table.write.partitionBy("year", "month", "day").mode("overwrite").csv(destinatio
 ```sh
 table.write.partitionBy("date").mode("overwrite").csv(destination)
 ```
-เช่น folder actors ต้องการเก็บข้อมูล column  actor login , id , actor url เป็นต้น
+ทั้งนี้จากตัวอย่าง คือทำการสร้าง folder actors เก็บข้อมูล column  actor login , id , actor url โดยแสดงดังภาพ
 ```sh
 table = spark.sql("""
     select
