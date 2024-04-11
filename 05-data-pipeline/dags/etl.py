@@ -1,4 +1,4 @@
-
+import json
 import glob
 import os
 
@@ -49,10 +49,11 @@ def _create_tables():
             actor_id int,
             repo_id int,
             PRIMARY KEY(id),
-            CONSTRAINT fk_actor FOREIGN KEY(actor_id) REFERENCES actors(id)
+            CONSTRAINT fk_actor FOREIGN KEY(actor_id) REFERENCES actors(id),
             CONSTRAINT fk_repo FOREIGN KEY(repo_id) REFERENCES repo(id)
         )
     """
+
     create_table_queries = [
         table_create_actors,
 	    table_create_repo,
@@ -68,15 +69,15 @@ def _create_tables():
     
 
 def _process(**context):
-    print(context)
-
-    ti = context["ti"]
-    all_files = ti.xcom_pull(task_ids="get_files", key="return_value")
-    print(all_files)
-
     hook = PostgresHook(postgres_conn_id="my_postgres_conn")
     conn = hook.get_conn()
     cur = conn.cursor()
+
+    ti = context["ti"]
+
+    # Get list of files from filepath
+    all_files = ti.xcom_pull(task_ids="get_files", key="return_value")
+    # all_files = get_files(filepath)
 
     for datafile in all_files:
         with open(datafile, "r") as f:
@@ -133,9 +134,8 @@ def _process(**context):
                     INSERT INTO events (
                         id,
                         type,
-                        actor_id,
-                        repo_id
-                    ) VALUES ('{each["id"]}', '{each["type"]}', '{each["actor"]["id"]}', '{each["repo"]["id"]}')
+                        actor_id
+                    ) VALUES ('{each["id"]}', '{each["type"]}', '{each["actor"]["id"]}')
                     ON CONFLICT (id) DO NOTHING
                 """
                 # print(insert_statement)
