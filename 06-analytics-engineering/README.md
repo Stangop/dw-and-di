@@ -154,18 +154,20 @@ VALUES
 
 - Create file .sql to contain SQL script to run on dbt
 
-in staging folder contain data which was prepared in staging layer 
-to wait for transforming and fload in data warehouse 
+ใน staging folder จะเก็บข้อมูลที่เตรียมไว้สำหรับใช้ใน staging layer 
+ซึ่งจะถูกนำไป extract transform และ load ใน data warehouse 
 
-- On dbt, we can use like SQL client to query
+- ประโยชน์ของ dbt
 
-- The pros of dbt is making the SQL script reproducible
+- ใน dbt สามารถใช้ client SQL เพื่อ query ได้
 
-- First, i've created the staging sql script 
+- สามารถทำ script ให้ SQL ทำซ้ำได้
+
+- ตัวอย่างการสร้าง staging sql script 
 ```
 select * from {{ source('jaffle_shop', 'jaffle_shop_customers') }}
 ```
-- Then I created another sql script in data mart which reference the sql script from staging layer
+- การสร้าง sql script ใน data mart 
 ```
 select
     o.id as order_id
