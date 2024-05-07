@@ -1,9 +1,0 @@
-ENV
-credentials
-.ipynb_checkpoints
-__pycache__
-_SUCCESS
-._SUCCESS*
-part-*
-.part-*
-.DS_Store
